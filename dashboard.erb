@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Destak Financeiro</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 50px; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .saldo { font-size: 2em; color: <%= @saldo >= 0 ? 'green' : 'red' %>; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Dashboard Destak - Gilmar</h1>
+        <p>Saldo Atual:</p>
+        <div class="saldo">R$ <%= sprintf('%.2f', @saldo) %></div>
+        
+        <table>
+            <tr>
+                <th>Descrição</th>
+                <th>Valor</th>
+            </tr>
+            <% @transacoes.each do |t| %>
+            <tr>
+                <td><%= t[:item] %></td>
+                <td>R$ <%= sprintf('%.2f', t[:valor]) %></td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+</body>
+</html>
