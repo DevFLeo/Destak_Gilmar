@@ -1,3 +1,6 @@
 source "https://rubygems.org"
 
-gem "colorize"
+gem "sinatra"         
+gem "sinatra-contrib"   
+gem "puma"              
+gem "colorize"           
